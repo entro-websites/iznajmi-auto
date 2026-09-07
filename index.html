@@ -277,35 +277,55 @@
     margin-top: 20px;
   }
 
-  /* Problem section */
-  .problem-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 56px;
-    align-items: center;
-    margin-top: 48px;
+  /* Problem / Resenje - jedna sekcija sa prekidacem */
+  .situacija { text-align: center; }
+
+  .situacija h2 {
+    max-width: 24ch;
+    margin: 0 auto;
   }
 
-  .problem-grid .img-frame {
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .problem-grid .img-frame img {
-    width: 100%;
-    display: block;
-  }
-
-  .problem-text p {
-    color: var(--muted);
-    font-size: 17px;
+  .situacija .lead-text {
     max-width: 60ch;
-    margin-bottom: 18px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  @media (max-width: 900px) {
-    .problem-grid { grid-template-columns: 1fr; }
+  .sit-panel { display: none; }
+  .sit-panel.active { display: block; }
+
+  .sit-switch {
+    display: inline-flex;
+    gap: 4px;
+    margin-top: 40px;
+    padding: 4px;
+    background: #ececea;
+    border-radius: 60px;
+  }
+
+  .sit-btn {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--muted);
+    background: transparent;
+    border: 0;
+    border-radius: 60px;
+    padding: 12px 40px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .sit-btn:hover { color: var(--text); }
+
+  .sit-btn.active {
+    background: #ffffff;
+    color: var(--text);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  }
+
+  @media (max-width: 768px) {
+    .sit-btn { font-size: 15px; padding: 12px 28px; }
   }
 
   /* Resenje / cards */
@@ -1619,209 +1639,25 @@
   </div>
 </section>
 
-<!-- PROBLEM -->
+<!-- PROBLEM / RESENJE -->
 <section id="problem" class="section-border">
-  <div class="wrap">
+  <div class="wrap situacija">
     <p class="section-label">Situacija koju znaš</p>
-    <h2>Rezervisao si po jednoj ceni, na šalteru te čeka druga</h2>
 
-    <div class="problem-grid">
-      <div class="problem-text">
-        <p>Nalaziš vozilo na sajtu, cena izgleda dobro, klikneš rezerviši. Onda dođeš po auto i saznaš da postoji depozit koji nisi računao, doplata za drugog vozača, doplata za gorivo koje "nije bilo puno" i taksa koju niko nije pomenuo telefonom.</p>
-        <p>Stojiš na šalteru, žuriš na sastanak ili na put, a sad računaš da li ti se uopšte isplati da odustaneš i tražiš drugu firmu. Većina ljudi u toj situaciji samo plati, jer nema vremena da se svađa.</p>
-        <p>Isto se dešava i kad ti treba kombi za selidbu ili baštenska mašina za vikend posao - cena "od" retko je cena koju stvarno platiš.</p>
+    <div class="sit-panels">
+      <div class="sit-panel active" data-panel="problem">
+        <h2>Rezervišeš po jednoj ceni, na šalteru te čeka druga</h2>
+        <p class="lead-text">Cena na sajtu izgleda dobro sve dok ne dođeš po vozilo. Onda se pojavi depozit koji nisi računao, doplata za drugog vozača, gorivo koje "nije bilo puno" i taksa koju niko nije pomenuo telefonom. Žuriš na put, nemaš vremena da tražiš drugu firmu, i na kraju samo platiš. Isto se dešava i kad ti treba kombi za selidbu ili mašina za vikend posao.</p>
       </div>
-      <div class="img-frame">
-        <div style="background:#e4e4e2; height:100%; min-height:280px; display:flex; align-items:center; justify-content:center; color:#8a8a8a; font-size:14px; text-align:center; padding:20px;">
-          FOTOGRAFIJA: KLIJENT NA ŠALTERU RENT A CAR AGENCIJE
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RESENJE -->
-<section id="resenje" class="section-border" style="background: var(--bg);">
-  <div class="wrap">
-    <p class="section-label">Rešenje</p>
-    <h2>Jedna cena, sve uključeno, bez naknadnih objašnjenja</h2>
-    <p class="lead-text">Invictus rent formira cene po principu "sve uključeno". Ono što vidiš pri rezervaciji, to plaćaš u dinarskoj protivvrednosti sa uračunatim PDV-om. Za duži angažman dobijaš posebnu cenu za dugoročni najam, bez preračunavanja dnevne cene puta broj dana.</p>
-
-    <div class="cards-3">
-      <div class="card">
-        <div class="icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3d7c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="1" y="7" width="18" height="10" rx="2"></rect>
-            <path d="M19 10h3v4h-3"></path>
-            <circle cx="6" cy="17" r="1.5"></circle>
-            <circle cx="15" cy="17" r="1.5"></circle>
-          </svg>
-        </div>
-        <h3>Automobili i kombiji</h3>
-        <p>Za privatne i poslovne potrebe - od kraćeg vikend najma do dugoročnih ugovora za firme.</p>
-      </div>
-      <div class="card">
-        <div class="icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3d7c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2v6"></path>
-            <path d="M12 22v-6"></path>
-            <path d="M4 12h6"></path>
-            <path d="M14 12h6"></path>
-            <circle cx="12" cy="12" r="3"></circle>
-          </svg>
-        </div>
-        <h3>Baštenska i građevinska oprema</h3>
-        <p>Kosačice, motorne testere, mešalice i druga oprema za posao oko kuće ili na gradilištu.</p>
-      </div>
-      <div class="card">
-        <div class="icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3d7c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 20l6-10 4 6 3-4 5 8"></path>
-            <path d="M3 20h18"></path>
-          </svg>
-        </div>
-        <h3>Kamp oprema</h3>
-        <p>Sve što ti treba za put i noćenje napolju, bez kupovine opreme koju koristiš par puta godišnje.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- KREDIBILITET -->
-<section id="kredibilitet" class="section-border">
-  <div class="wrap">
-    <p class="section-label">Zašto baš Invictus rent</p>
-    <h2>Firma koju prepoznaju širom Srbije, ne agencija koju danas otvore a sutra zatvore</h2>
-    <p class="lead-text">Invictus rent d.o.o. dugo je prisutan na tržištu Srbije i ima poslovnice u pet gradova. Ne moraš da tražiš lokalnu firmu u svakom gradu - mreža je već tu, gde god da ti zatreba vozilo ili oprema.</p>
-
-    <div class="cred-grid">
-      <div class="cred-item"><span>Kragujevac</span>poslovnica</div>
-      <div class="cred-item"><span>Niš</span>poslovnica</div>
-      <div class="cred-item"><span>Kraljevo</span>poslovnica</div>
-      <div class="cred-item"><span>Smederevo</span>poslovnica</div>
-      <div class="cred-item"><span>Zlatibor</span>poslovnica</div>
-    </div>
-  </div>
-</section>
-
-<!-- BENEFITI -->
-<section class="section-border" style="background: var(--bg);">
-  <div class="wrap">
-    <p class="section-label">Šta konkretno dobijaš</p>
-    <h2>Ne kupuješ vozilo, kupuješ miran dan</h2>
-
-    <div class="benefit-list">
-      <div class="benefit-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#1a3d7c" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        <p>Znaš tačan iznos pre nego što uzmeš vozilo, nema doplata na šalteru.</p>
-      </div>
-      <div class="benefit-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#1a3d7c" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        <p>Preuzmeš vozilo u jednom gradu, vratiš ga u drugom - poslovnice su u pet gradova Srbije.</p>
-      </div>
-      <div class="benefit-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#1a3d7c" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        <p>Za duži angažman dobijaš posebnu cenu za dugoročni najam, ne dnevnu cenu pomnoženu mesecima.</p>
-      </div>
-      <div class="benefit-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#1a3d7c" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        <p>Na istom mestu rešavaš automobil, kombi za selidbu i opremu za baštu ili gradilište.</p>
-      </div>
-      <div class="benefit-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#1a3d7c" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        <p>Cena je u eurima, ali plaćaš dinarsku protivvrednost sa PDV-om - tačno znaš šta ide na račun.</p>
-      </div>
-      <div class="benefit-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#1a3d7c" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        <p>Ne gubiš vreme tražeći pouzdanu firmu u svakom gradu posebno - mreža poslovnica je već tu.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DOKAZI -->
-<section id="dokazi" class="section-border">
-  <div class="wrap">
-    <p class="section-label">Dokazi</p>
-    <h2>Ono što stoji iza imena Invictus rent</h2>
-    <p class="lead-text">Ne obećavamo brojke koje ne možemo da potkrepimo. Ono što stoji iza nas je jednostavno: dugogodišnje prisustvo na tržištu Srbije i mreža poslovnica koja pokriva pet gradova.</p>
-
-    <div class="proof-box">
-      <div>
-        <div class="num">5</div>
-        <div class="label">poslovnica širom Srbije</div>
-      </div>
-      <div>
-        <div class="num">3</div>
-        <div class="label">kategorije najma - vozila, kombiji, oprema</div>
-      </div>
-      <div>
-        <div class="num">1</div>
-        <div class="label">cena, sve uključeno, bez iznenađenja</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PONUDA -->
-<section id="ponuda" class="section-border" style="background: var(--bg);">
-  <div class="wrap">
-    <p class="section-label">Ponuda</p>
-    <h2>Šta dobijaš kad rezervišeš kod nas</h2>
-    <p class="lead-text">Bira se vozilo, kombi ili oprema koja ti treba, dobiješ jednu cenu koja pokriva sve, i to je to.</p>
-
-    <div class="offer-box">
-      <h3 style="font-size: 24px;">U cenu je uračunato:</h3>
-      <ul class="offer-list">
-        <li>Osnovno kasko osiguranje vozila</li>
-        <li>PDV, obračunat u dinarskoj protivvrednosti</li>
-        <li>Preuzimanje i vraćanje u dogovorenoj poslovnici</li>
-        <li>Jasno definisan period najma, bez naknadnog preračunavanja</li>
-      </ul>
-      <p class="offer-note">Cena je izražena u eurima, jer je tako lakše porediti ponude, ali se naplaćuje u dinarskoj protivvrednosti sa PDV-om na dan preuzimanja. Za najam duži od mesec dana važi posebna cena za dugoročni najam - manja od zbira dnevnih cena, jer znamo da dugoročni klijent ne treba da plaća kao da iznajmljuje za vikend.</p>
-      <div class="offer-cta">
-        <a href="#kontakt" class="btn">Zatraži ponudu za tvoj termin</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- UPOZORENJE -->
-<section class="section-border">
-  <div class="wrap">
-    <p class="section-label">Ako ostaviš za kasnije</p>
-    <h2>Za šest meseci, ista dilema te čeka ponovo</h2>
-    <div class="warning-box">
-      <p>Ako sad odložiš i nastaviš da biraš prvu agenciju koja iskoči na pretragu, sledeći put kad ti zatreba vozilo ili oprema, opet ćeš morati da zvučiš, poredis cene "od" i nagađaš šta je stvarno uključeno.</p>
-      <p>Ništa se ne menja samo zato što je prošlo vreme - i dalje ćeš stajati na šalteru i saznavati cenu tek kad je kasno da odustaneš.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section id="kontakt" class="cta-section section-border">
-  <div class="wrap">
-    <p class="section-label" style="color: rgba(255,255,255,0.85);">Sledeći korak</p>
-    <h2>Pošalji upit i dobij tačnu cenu za svoj termin</h2>
-    <p class="lead-text">Javi nam se telefonom ili preko forme, reci nam grad, datum i šta ti treba - automobil, kombi ili oprema. Vraćamo ti se sa ponudom koja sadrži tačnu cenu, bez "od" i bez zvezdica.</p>
-
-    <div class="cta-steps">
-      <div>
-        <span>1</span>
-        <p>Pošalješ upit sa gradom, datumom i tipom vozila ili opreme.</p>
-      </div>
-      <div>
-        <span>2</span>
-        <p>Dobiješ konkretnu ponudu sa cenom sa PDV-om, bez dodatnih uslova.</p>
-      </div>
-      <div>
-        <span>3</span>
-        <p>Preuzmeš vozilo ili opremu u poslovnici koja ti odgovara.</p>
+      <div class="sit-panel" data-panel="resenje">
+        <h2>Jedna cena, sve uključeno, bez naknadnih objašnjenja</h2>
+        <p class="lead-text">Invictus rent formira cene po principu "sve uključeno". Ono što vidiš pri rezervaciji, to i platiš - u dinarskoj protivvrednosti sa uračunatim PDV-om i osnovnim kasko osiguranjem. Za duži angažman važi posebna cena za dugoročni najam, ne dnevna tarifa pomnožena brojem dana. Vozila, kombiji i oprema - sve na istom mestu, u pet gradova Srbije.</p>
       </div>
     </div>
 
-    <div class="cta-row" style="margin-top: 40px;">
-      <a href="#" class="btn">Rezerviši vozilo</a>
+    <div class="sit-switch" id="sitSwitch">
+      <button class="sit-btn active" type="button" data-target="problem">Problem</button>
+      <button class="sit-btn" type="button" data-target="resenje">Rešenje</button>
     </div>
   </div>
 </section>
@@ -1877,6 +1713,24 @@
     link.addEventListener('click', function () {
       mobileMenu.classList.remove('open');
       hamburgerBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  var sitSwitch = document.getElementById('sitSwitch');
+  var sitPanels = document.querySelectorAll('.sit-panel');
+
+  sitSwitch.addEventListener('click', function (e) {
+    var btn = e.target.closest('.sit-btn');
+    if (!btn) return;
+
+    sitSwitch.querySelectorAll('.sit-btn').forEach(function (b) {
+      b.classList.remove('active');
+    });
+    btn.classList.add('active');
+
+    var target = btn.getAttribute('data-target');
+    sitPanels.forEach(function (panel) {
+      panel.classList.toggle('active', panel.getAttribute('data-panel') === target);
     });
   });
 
